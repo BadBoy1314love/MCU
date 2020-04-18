@@ -1,0 +1,106 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/11/2020  08:15:42  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\PERSONALPROGRAMFILES\KEIL5\C51\BIN\BL51.EXE .\Objects\红外传感器控制电磁阀.obj TO .\Objects\红外传感器控制电磁阀 PRIN
+>> T (.\Listings\红外传感器控制电磁阀.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\红外传感器控制电磁阀.obj (____________________)
+  C:\PERSONALPROGRAMFILES\KEIL5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\红外传感器控制电磁阀 (____________________)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0024H     UNIT         ?PR?MAIN?____________________
+            CODE    0027H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0033H     0005H     UNIT         ?PR?INITIALIZE?____________________
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\红外传感器控制电磁阀 (____________________)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?____________________
+
+?PR?MAIN?____________________
+  +--> ?PR?INITIALIZE?____________________
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\红外传感器控制电磁阀 (____________________)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ____________________
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0090H.0       PUBLIC        Relay
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2020  08:15:42  PAGE 2
+
+
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  C:0033H         PUBLIC        Initialize
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  C:0003H         PUBLIC        main
+  B:00B0H.2       PUBLIC        Infrared_sensor
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          INITIALIZE
+  C:0033H         LINE#         69
+  C:0033H         LINE#         70
+  C:0033H         LINE#         71
+  C:0035H         LINE#         72
+  C:0037H         LINE#         73
+  -------         ENDPROC       INITIALIZE
+  -------         PROC          MAIN
+  -------         DO            
+  D:0006H         SYMBOL        k
+  -------         ENDDO         
+  C:0003H         LINE#         85
+  C:0003H         LINE#         86
+  C:0003H         LINE#         87
+  C:0006H         LINE#         88
+  C:0009H         LINE#         89
+  C:0009H         LINE#         90
+  C:0009H         LINE#         91
+  C:000CH         LINE#         92
+  C:000CH         LINE#         93
+  C:0011H         LINE#         94
+  C:0011H         LINE#         96
+  C:001CH         LINE#         97
+  C:001CH         LINE#         98
+  C:0020H         LINE#         99
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        ____________________
+
+Program Size: data=9.0 xdata=0 code=56
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

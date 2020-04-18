@@ -1,0 +1,3 @@
+".\Objects\红外传感器控制电磁阀.obj" 
+TO ".\Objects\红外传感器控制电磁阀" 
+PRINT(".\Listings\红外传感器控制电磁阀.m51") RAMSIZE(256) 
