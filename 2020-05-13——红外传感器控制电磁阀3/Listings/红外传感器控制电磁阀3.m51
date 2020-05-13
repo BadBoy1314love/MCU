@@ -1,20 +1,20 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/13/2020  15:43:06  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/13/2020  16:44:47  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
-C:\PERSONALPROGRAMFILES\KEIL5\C51\BIN\BL51.EXE .\Objects\红外传感器控制电磁阀2.obj TO .\Objects\红外传感器控制电磁阀2 PR
->> INT (.\Listings\红外传感器控制电磁阀2.m51) RAMSIZE (256)
+C:\PERSONALPROGRAMFILES\KEIL5\C51\BIN\BL51.EXE .\Objects\红外传感器控制电磁阀3.obj TO .\Objects\红外传感器控制电磁阀3 PR
+>> INT (.\Listings\红外传感器控制电磁阀3.m51) RAMSIZE (256)
 
 
 MEMORY MODEL: SMALL
 
 
 INPUT MODULES INCLUDED:
-  .\Objects\红外传感器控制电磁阀2.obj (____________________2)
+  .\Objects\红外传感器控制电磁阀3.obj (____________________3)
   C:\PERSONALPROGRAMFILES\KEIL5\C51\LIB\C51S.LIB (?C_STARTUP)
 
 
-LINK MAP OF MODULE:  .\Objects\红外传感器控制电磁阀2 (____________________2)
+LINK MAP OF MODULE:  .\Objects\红外传感器控制电磁阀3 (____________________3)
 
 
             TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
@@ -27,39 +27,39 @@ LINK MAP OF MODULE:  .\Objects\红外传感器控制电磁阀2 (____________________2)
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-            CODE    0003H     0052H     UNIT         ?PR?MAIN?____________________2
-            CODE    0055H     000CH     UNIT         ?C_C51STARTUP
-            CODE    0061H     0009H     UNIT         ?PR?DELAY10MS?____________________2
+            CODE    0003H     0061H     UNIT         ?PR?MAIN?____________________3
+            CODE    0064H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0070H     0009H     UNIT         ?PR?DELAY10MS?____________________3
 
 
 
-OVERLAY MAP OF MODULE:   .\Objects\红外传感器控制电磁阀2 (____________________2)
+OVERLAY MAP OF MODULE:   .\Objects\红外传感器控制电磁阀3 (____________________3)
 
 
 SEGMENT                                       DATA_GROUP 
   +--> CALLED SEGMENT                       START    LENGTH
 -----------------------------------------------------------
 ?C_C51STARTUP                               -----    -----
-  +--> ?PR?MAIN?____________________2
+  +--> ?PR?MAIN?____________________3
 
-?PR?MAIN?____________________2              0008H    0002H
-  +--> ?PR?DELAY10MS?____________________2
+?PR?MAIN?____________________3              0008H    0002H
+  +--> ?PR?DELAY10MS?____________________3
 
 
 
-SYMBOL TABLE OF MODULE:  .\Objects\红外传感器控制电磁阀2 (____________________2)
+SYMBOL TABLE OF MODULE:  .\Objects\红外传感器控制电磁阀3 (____________________3)
 
   VALUE           TYPE          NAME
   ----------------------------------
 
-  -------         MODULE        ____________________2
+  -------         MODULE        ____________________3
   C:0000H         SYMBOL        _ICE_DUMMY_
   B:0090H.1       PUBLIC        Relay
   D:0080H         PUBLIC        P0
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/13/2020  15:43:06  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/13/2020  16:44:47  PAGE 2
 
 
   D:00C0H         PUBLIC        P4
@@ -72,7 +72,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\红外传感器控制电磁阀2 (____________________2)
   C:0003H         PUBLIC        main
   B:0090H.2       PUBLIC        Infrared_sensor
   D:0098H         PUBLIC        SCON
-  C:0061H         PUBLIC        Delay10ms
+  C:0070H         PUBLIC        Delay10ms
   D:0088H         PUBLIC        TCON
   D:00D0H         PUBLIC        PSW
   -------         PROC          DELAY10MS
@@ -80,14 +80,14 @@ SYMBOL TABLE OF MODULE:  .\Objects\红外传感器控制电磁阀2 (____________________2)
   D:0007H         SYMBOL        i
   D:0006H         SYMBOL        j
   -------         ENDDO         
-  C:0061H         LINE#         7
-  C:0061H         LINE#         8
-  C:0061H         LINE#         11
-  C:0063H         LINE#         12
-  C:0065H         LINE#         14
-  C:0065H         LINE#         15
-  C:0067H         LINE#         16
-  C:0069H         LINE#         17
+  C:0070H         LINE#         7
+  C:0070H         LINE#         8
+  C:0070H         LINE#         11
+  C:0072H         LINE#         12
+  C:0074H         LINE#         14
+  C:0074H         LINE#         15
+  C:0076H         LINE#         16
+  C:0078H         LINE#         17
   -------         ENDPROC       DELAY10MS
   -------         PROC          MAIN
   -------         DO            
@@ -119,28 +119,29 @@ SYMBOL TABLE OF MODULE:  .\Objects\红外传感器控制电磁阀2 (____________________2)
   C:0014H         LINE#         39
   C:0024H         LINE#         40
   C:0024H         LINE#         41
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/13/2020  15:43:06  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/13/2020  16:44:47  PAGE 3
 
 
   C:0026H         LINE#         42
   C:0029H         LINE#         43
   C:002CH         LINE#         44
   C:002CH         LINE#         45
-  C:002CH         LINE#         46
-  C:002CH         LINE#         47
-  C:003CH         LINE#         48
-  C:003CH         LINE#         49
-  C:003EH         LINE#         50
-  C:0041H         LINE#         51
-  C:0041H         LINE#         52
-  C:0041H         LINE#         53
-  C:0041H         LINE#         54
-  C:004BH         LINE#         55
-  C:004BH         LINE#         56
-  C:004BH         LINE#         57
-  C:004BH         LINE#         58
+  C:003CH         LINE#         46
+  C:003CH         LINE#         47
+  C:003EH         LINE#         48
+  C:0041H         LINE#         49
+  C:0044H         LINE#         50
+  C:0044H         LINE#         51
+  C:0044H         LINE#         52
+  C:0044H         LINE#         53
+  C:0050H         LINE#         54
+  C:0050H         LINE#         55
+  C:0050H         LINE#         56
+  C:0050H         LINE#         57
+  C:005AH         LINE#         58
+  C:005AH         LINE#         59
   -------         ENDPROC       MAIN
-  -------         ENDMOD        ____________________2
+  -------         ENDMOD        ____________________3
 
-Program Size: data=11.0 xdata=0 code=106
+Program Size: data=11.0 xdata=0 code=121
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

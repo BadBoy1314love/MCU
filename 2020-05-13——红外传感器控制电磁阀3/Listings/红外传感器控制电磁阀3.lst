@@ -1,0 +1,339 @@
+C51 COMPILER V9.60.0.0   ____________________3                                             05/13/2020 16:44:47 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE ____________________3
+OBJECT MODULE PLACED IN .\Objects\红外传感器控制电磁阀3.obj
+COMPILER INVOKED BY: C:\PersonalProgramFiles\Keil5\C51\BIN\C51.EXE 红外传感器控制电磁阀3.c OPTIMIZE(8,SPEED) BROWSE DEBU
+                    -G OBJECTEXTEND PRINT(.\Listings\红外传感器控制电磁阀3.lst) TABS(2) OBJECT(.\Objects\红外传感器控制电磁阀3.obj)
+
+line level    source
+
+   1          #include <STC15.h>
+   2          #include <intrins.h>
+   3          
+   4          sbit Relay=P1^1;              //继电器  用于间接控制电磁阀
+   5          sbit Infrared_sensor=P1^2;   //红外传感器  用于控制继电器的开启与关闭
+   6          
+   7          void Delay10ms()    //@12.000MHz
+   8          {
+   9   1        unsigned char i, j;
+  10   1      
+  11   1        i = 117;
+  12   1        j = 184;
+  13   1        do
+  14   1        {
+  15   2          while (--j);
+  16   2        } while (--i);
+  17   1      }
+  18          
+  19          void main()
+  20          {
+  21   1        Relay=1;           //继电器断开状态
+  22   1        while(1)
+  23   1        {
+  24   2          unsigned int a=0; 
+  25   2          P1:
+  26   2          Relay=1;           //继电器断开状态
+  27   2          if(Infrared_sensor==0)         //如果传感器检测到物体
+  28   2          {
+  29   3            while(1)                     //继电器持续断开，直到传感器检测不到物体，去P2
+  30   3            {
+  31   4              Relay=1;
+  32   4              if(Infrared_sensor==1)          
+  33   4              {
+  34   5                goto P2;
+  35   5              } 
+  36   4            }
+  37   3            
+  38   3            P2:
+  39   3            for(a=0;a<=30000;a++)          //延时5min，且在5min内继电器状态都为闭合
+  40   3            {
+  41   4              Relay=0;
+  42   4              Delay10ms();
+  43   4              if(Infrared_sensor==0)        //5min延时内，如果检测到物体，继电器持续闭合5min
+  44   4              {
+  45   5                for(a=0;a<=30000;a++)
+  46   5                {
+  47   6                  Relay=0;
+  48   6                  Delay10ms();
+  49   6                  if(Infrared_sensor==1)     //当传感器检测不到物体时，去P1
+  50   6                  {
+  51   7                    goto P1;
+  52   7                  }
+  53   6                  else if(a==30000)             //当持续检测超过5min时，去P1
+  54   6                  {
+C51 COMPILER V9.60.0.0   ____________________3                                             05/13/2020 16:44:47 PAGE 2   
+
+  55   7                    goto P1;
+  56   7                  }
+  57   6                }
+  58   5              }
+  59   4            }
+  60   3          }
+  61   2        }
+  62   1      }
+  63          
+  64          
+  65          /*
+  66          void delay30ms()    //@12.000MHz
+  67          {
+  68            unsigned char i, j, k;
+  69          
+  70            _nop_();
+  71            _nop_();
+  72            i = 2;
+  73            j = 95;
+  74            k = 43;
+  75            do
+  76            {
+  77              do
+  78              {
+  79                while (--k);
+  80              } while (--j);
+  81            } while (--i);
+  82          }
+  83          
+  84          
+  85          void delay50ms()    //@12.000MHz
+  86          {
+  87            unsigned char i, j, k;
+  88          
+  89            _nop_();
+  90            _nop_();
+  91            i = 3;
+  92            j = 72;
+  93            k = 161;
+  94            do
+  95            {
+  96              do
+  97              {
+  98                while (--k);
+  99              } while (--j);
+ 100            } while (--i);
+ 101          }
+ 102          */
+ 103          
+ 104          /*
+ 105          void Delay60ms()    //@12.000MHz
+ 106          {
+ 107            unsigned char i, j, k;
+ 108          
+ 109            _nop_();
+ 110            _nop_();
+ 111            i = 3;
+ 112            j = 189;
+ 113            k = 92;
+ 114            do
+ 115            {
+ 116              do
+C51 COMPILER V9.60.0.0   ____________________3                                             05/13/2020 16:44:47 PAGE 3   
+
+ 117              {
+ 118                while (--k);
+ 119              } while (--j);
+ 120            } while (--i);
+ 121          }
+ 122          
+ 123          void Delay100ms()   //@12.000MHz
+ 124          {
+ 125            unsigned char i, j, k;
+ 126          
+ 127            _nop_();
+ 128            _nop_();
+ 129            i = 5;
+ 130            j = 144;
+ 131            k = 71;
+ 132            do
+ 133            {
+ 134              do
+ 135              {
+ 136                while (--k);
+ 137              } while (--j);
+ 138            } while (--i);
+ 139          }
+ 140          
+ 141          
+ 142          
+ 143          void Delay500ms()   //@12.000MHz
+ 144          {
+ 145            unsigned char i, j, k;
+ 146            _nop_();
+ 147            _nop_();
+ 148            i = 23;
+ 149            j = 205;
+ 150            k = 120;
+ 151            do
+ 152            {
+ 153              do
+ 154              {
+ 155                while (--k);
+ 156              } while (--j);
+ 157            } while (--i);
+ 158          }
+ 159          
+ 160          void Delay1min()
+ 161          {
+ 162            unsigned int a=0;
+ 163            for(a=0;a<=120;a++)
+ 164            {
+ 165              Delay500ms();
+ 166            }
+ 167          }
+ 168          
+ 169          void Delay5min()
+ 170          {
+ 171            unsigned int a=0;
+ 172            for(a=0;a<=600;a++)
+ 173            {
+ 174              Delay500ms();
+ 175            }
+ 176          }
+ 177          */
+ 178            
+C51 COMPILER V9.60.0.0   ____________________3                                             05/13/2020 16:44:47 PAGE 4   
+
+ 179          
+ 180          /*
+ 181          
+ 182          误差较大的延时
+ 183          void delay30ms(void)   //误差 -0.000000000002us
+ 184          {
+ 185              unsigned char a,b,c;
+ 186              for(c=3;c>0;c--)
+ 187                  for(b=212;b>0;b--)
+ 188                      for(a=140;a>0;a--);
+ 189          }
+ 190          
+ 191          void delay50ms(void)   //误差 -0.000000000003us
+ 192          {
+ 193              unsigned char a,b,c;
+ 194              for(c=123;c>0;c--)
+ 195                  for(b=116;b>0;b--)
+ 196                      for(a=9;a>0;a--);
+ 197          }
+ 198          */
+ 199          
+ 200          
+ 201          /*
+ 202          之前写的一部分代码参考
+ 203          void main()
+ 204          {
+ 205            Initialize();
+ 206            while(1)
+ 207            {
+ 208              if(Infrared_sensor==0)
+ 209              {
+ 210                Infrared_sensor=0;
+ 211                delay50ms();
+ 212                Infrared_sensor=1;
+ 213                Relay=~Relay;
+ 214              }
+ 215              while(Infrared_sensor);
+ 216            }
+ 217          }
+ 218          
+ 219          
+ 220          
+ 221          
+ 222          void main()
+ 223          {
+ 224            Initialize();     //上电初始化
+ 225            while(1)
+ 226            {
+ 227              unsigned int a=0;
+ 228              Relay=1;          //继电器复位
+ 229              P1:
+ 230              if(Infrared_sensor1==0)     //如果红外传感器1检测到物体
+ 231              {
+ 232                P2:
+ 233                Infrared_sensor1=0;                
+ 234                Delay100ms();             //保持传感器输出为0持续100ms，即检测到物体持续100ms
+ 235                Infrared_sensor1=1;       //控制传感器1输出为1，取消保持
+ 236                
+ 237                if(Infrared_sensor2==0)     //如果红外传感器2受到阻挡
+ 238                {
+ 239                  Infrared_sensor2=0;
+ 240                  Delay60ms();             //保持传感器输出为0持续60ms，即认为有物体持续阻挡了60ms
+C51 COMPILER V9.60.0.0   ____________________3                                             05/13/2020 16:44:47 PAGE 5   
+
+ 241                  Infrared_sensor2=1;      //控制传感器2输出为1，取消保持
+ 242                  while(1)
+ 243                  {
+ 244                    Relay=1;              //初始化传感器1与传感器2与以及继电器
+ 245                    if(Infrared_sensor2==1)    //如果传感器2没有被阻挡，则跳出循环
+ 246                    {
+ 247                      break;
+ 248                    }
+ 249                  }
+ 250                }
+ 251                Relay=~Relay;             //继电器状态翻转
+ 252                for(a=0;a<=6000;a++)
+ 253                {
+ 254                  Delay50ms();
+ 255                  if(Infrared_sensor1==0||Infrared_sensor2==0)  //在延时过程中有任何一个传感器受到阻挡即刻退出
+ 256                  {
+ 257                    goto P1;
+ 258                  }
+ 259                }     //继电器持续运行的最大时间5min
+ 260              }
+ 261              if(Infrared_sensor2==0)     //如果红外传感器2先受到阻挡
+ 262              {
+ 263                goto P2;
+ 264              }
+ 265            }
+ 266          }
+ 267          */
+ 268          
+ 269          
+ 270          /*
+ 271          void main()
+ 272          {
+ 273            Initialize();
+ 274            while(1)
+ 275            {
+ 276              unsigned int a=0; 
+ 277              Initialize();
+ 278              if(Infrared_sensor1==0)
+ 279              {
+ 280                while(1)
+ 281                {
+ 282                  Relay=1;
+ 283                  if(Infrared_sensor1==1)
+ 284                  {
+ 285                    Relay=0;
+ 286                  }
+ 287                  break;
+ 288                }
+ 289                
+ 290                for(a=0;a<=6000;a++)
+ 291                {
+ 292                Delay50ms();
+ 293                if(Infrared_sensor1==0)
+ 294                {
+ 295                  Relay=1;
+ 296                  break;
+ 297                }
+ 298                while(!Infrared_sensor1);
+ 299                }
+ 300              }
+ 301            }
+ 302            
+C51 COMPILER V9.60.0.0   ____________________3                                             05/13/2020 16:44:47 PAGE 6   
+
+ 303          }
+ 304          
+ 305          */
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    106    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
