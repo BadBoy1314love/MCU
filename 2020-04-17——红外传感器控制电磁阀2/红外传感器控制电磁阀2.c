@@ -56,7 +56,6 @@ void main()
 	}
 }
 
-
 /*
 void delay30ms()		//@12.000MHz
 {
