@@ -1,0 +1,3 @@
+".\Objects\红外感应洗手器.obj" 
+TO ".\Objects\红外感应洗手器" 
+PRINT(".\Listings\红外感应洗手器.m51") RAMSIZE(256) 
