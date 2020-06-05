@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    06/06/2020  01:07:09  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    06/06/2020  03:19:30  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -22,27 +22,26 @@ LINK MAP OF MODULE:  .\Objects\红外感应洗手器 (______________)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     0002H     UNIT         _DATA_GROUP_
-            IDATA   000AH     0001H     UNIT         ?STACK
+            IDATA   0008H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-            CODE    0003H     0067H     UNIT         ?PR?MAIN?______________
-            CODE    006AH     000CH     UNIT         ?C_C51STARTUP
-            CODE    0076H     0009H     UNIT         ?PR?DELAY10MS?______________
+            CODE    0003H     004DH     UNIT         ?PR?MAIN?______________
+            CODE    0050H     000CH     UNIT         ?C_C51STARTUP
+            CODE    005CH     0009H     UNIT         ?PR?DELAY10MS?______________
 
 
 
 OVERLAY MAP OF MODULE:   .\Objects\红外感应洗手器 (______________)
 
 
-SEGMENT                                DATA_GROUP 
-  +--> CALLED SEGMENT                START    LENGTH
-----------------------------------------------------
-?C_C51STARTUP                        -----    -----
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
   +--> ?PR?MAIN?______________
 
-?PR?MAIN?______________              0008H    0002H
+?PR?MAIN?______________
   +--> ?PR?DELAY10MS?______________
 
 
@@ -59,10 +58,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\红外感应洗手器 (______________)
   D:0091H         PUBLIC        P1M1
   D:0080H         PUBLIC        P0
   D:0090H         PUBLIC        P1
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/06/2020  01:07:09  PAGE 2
-
-
   D:00A0H         PUBLIC        P2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/06/2020  03:19:30  PAGE 2
+
+
   D:00B0H         PUBLIC        P3
   D:00C0H         PUBLIC        P4
   D:00C8H         PUBLIC        P5
@@ -74,7 +73,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\红外感应洗手器 (______________)
   C:0003H         PUBLIC        main
   B:0090H.2       PUBLIC        Infrared_sensor
   D:0098H         PUBLIC        SCON
-  C:0076H         PUBLIC        Delay10ms
+  C:005CH         PUBLIC        Delay10ms
   D:0088H         PUBLIC        TCON
   D:00D0H         PUBLIC        PSW
   -------         PROC          DELAY10MS
@@ -82,70 +81,69 @@ SYMBOL TABLE OF MODULE:  .\Objects\红外感应洗手器 (______________)
   D:0007H         SYMBOL        i
   D:0006H         SYMBOL        j
   -------         ENDDO         
-  C:0076H         LINE#         17
-  C:0076H         LINE#         18
-  C:0076H         LINE#         21
-  C:0078H         LINE#         22
-  C:007AH         LINE#         24
-  C:007AH         LINE#         25
-  C:007CH         LINE#         26
-  C:007EH         LINE#         27
+  C:005CH         LINE#         17
+  C:005CH         LINE#         18
+  C:005CH         LINE#         21
+  C:005EH         LINE#         22
+  C:0060H         LINE#         24
+  C:0060H         LINE#         25
+  C:0062H         LINE#         26
+  C:0064H         LINE#         27
   -------         ENDPROC       DELAY10MS
   -------         PROC          MAIN
   -------         DO            
-  C:0010H         SYMBOL        P1
-  C:001AH         SYMBOL        P2
-  -------         DO            
-  D:0008H         SYMBOL        a
-  -------         ENDDO         
+  D:0004H         SYMBOL        ON_T
+  D:0002H         SYMBOL        MAX_T
+  C:000FH         SYMBOL        P1
+  C:0019H         SYMBOL        P2
   -------         ENDDO         
   C:0003H         LINE#         29
   C:0003H         LINE#         30
-  C:0003H         LINE#         31
-  C:0006H         LINE#         32
-  C:0009H         LINE#         34
-  C:000BH         LINE#         35
-  C:000BH         LINE#         36
-  C:000BH         LINE#         37
-  C:0010H         LINE#         38
-  C:0010H         LINE#         39
-  C:0012H         LINE#         40
-  C:0015H         LINE#         41
-  C:0015H         LINE#         42
-  C:0015H         LINE#         43
-  C:0015H         LINE#         44
-  C:0017H         LINE#         45
-  C:001AH         LINE#         46
-  C:001AH         LINE#         47
-  C:001AH         LINE#         48
-  C:001AH         LINE#         49
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/06/2020  01:07:09  PAGE 3
+  C:0003H         LINE#         32
+  C:0007H         LINE#         34
+  C:000AH         LINE#         35
+  C:000DH         LINE#         37
+  C:000FH         LINE#         39
+  C:000FH         LINE#         40
+  C:000FH         LINE#         42
+  C:000FH         LINE#         43
+  C:0011H         LINE#         44
+  C:0014H         LINE#         45
+  C:0014H         LINE#         46
+  C:0014H         LINE#         47
+  C:0014H         LINE#         48
+  C:0016H         LINE#         49
+  C:0019H         LINE#         50
+  C:0019H         LINE#         51
+  C:0019H         LINE#         52
+  C:0019H         LINE#         53
+  C:0019H         LINE#         55
+  C:0019H         LINE#         56
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/06/2020  03:19:30  PAGE 3
 
 
-  C:001AH         LINE#         51
-  C:001AH         LINE#         52
-  C:002AH         LINE#         53
-  C:002AH         LINE#         54
-  C:002CH         LINE#         55
-  C:002FH         LINE#         56
-  C:0032H         LINE#         57
-  C:0032H         LINE#         58
-  C:0042H         LINE#         59
-  C:0042H         LINE#         60
-  C:0044H         LINE#         61
-  C:0047H         LINE#         62
-  C:004AH         LINE#         63
-  C:004AH         LINE#         64
-  C:004AH         LINE#         65
-  C:004AH         LINE#         66
-  C:0056H         LINE#         67
-  C:0056H         LINE#         68
-  C:0056H         LINE#         69
-  C:0056H         LINE#         70
-  C:0060H         LINE#         71
-  C:0060H         LINE#         72
+  C:0023H         LINE#         57
+  C:0023H         LINE#         58
+  C:0025H         LINE#         59
+  C:0028H         LINE#         60
+  C:002BH         LINE#         61
+  C:002BH         LINE#         62
+  C:0032H         LINE#         63
+  C:0032H         LINE#         64
+  C:0034H         LINE#         65
+  C:0037H         LINE#         66
+  C:003AH         LINE#         67
+  C:003AH         LINE#         68
+  C:003AH         LINE#         69
+  C:003AH         LINE#         70
+  C:0042H         LINE#         71
+  C:0042H         LINE#         72
+  C:0042H         LINE#         73
+  C:0042H         LINE#         74
+  C:0049H         LINE#         75
+  C:0049H         LINE#         76
   -------         ENDPROC       MAIN
   -------         ENDMOD        ______________
 
-Program Size: data=11.0 xdata=0 code=127
+Program Size: data=9.0 xdata=0 code=101
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

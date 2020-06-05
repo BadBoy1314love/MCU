@@ -28,13 +28,17 @@ void Delay10ms()		//@12.000MHz
 
 int main(void)
 {
+	unsigned int ON_T;             //用于存放继电器闭合时间的全局变量
+	unsigned int MAX_T=30000;       //用于存放继电器闭合最大时间的全局变量
+	
 	P1M1=0x00;    // 0000 0000
-	P1M0=0x02;    // 0000 0010    将P1^1继电器信号输出端口设置为高阻态
+	P1M0=0x02;    // 0000 0010    将P1^1继电器信号输出端口设置为推挽输出
 	
   Relay=1;           //继电器断开状态
+	
 	while(1)
 	{
-		unsigned int a=0; 
+		
 		P1:
 		Relay=1;           //继电器断开状态
 		if(Infrared_sensor==0)         //如果传感器检测到物体
@@ -49,13 +53,13 @@ int main(void)
 			}
 			
 			P2:
-			for(a=0;a<=30000;a++)          //延时5min，且在5min内继电器状态都为闭合
+			for(ON_T=0;ON_T<=MAX_T;ON_T++)          //延时5min，且在5min内继电器状态都为闭合
 		  {
 				Relay=0;
 			  Delay10ms();
-				if(Infrared_sensor==0)        //5min延时内，如果检测到物体，继电器持续闭合5min
+				if(Infrared_sensor==0)        //5min延时内，如果检测到物体，继电器继续保持闭合5min剩余时间 (出水遮挡检测)
 				{
-					for(a=0;a<=30000;a++)
+					for(;ON_T<=MAX_T;ON_T++)
 					{
 						Relay=0;
 						Delay10ms();
@@ -63,7 +67,7 @@ int main(void)
 						{
 							goto P1;
 						}
-						else if(a==30000)             //当持续检测超过5min时，去P1
+						else if(ON_T==MAX_T)             //当持续检测达到5min剩余时间时，去P1
 						{
 							goto P1;
 						}
