@@ -26,7 +26,7 @@ void Delay10ms()		//@12.000MHz
 	} while (--i);
 }
 
-int main(void)
+void main(void)
 {
 	unsigned int ON_T;             //用于存放继电器闭合时间的全局变量
 	unsigned int MAX_T=30000;       //用于存放继电器闭合最大时间的全局变量
